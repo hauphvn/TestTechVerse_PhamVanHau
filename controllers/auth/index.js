@@ -64,6 +64,20 @@ class AuthController {
         }
 
     }
+
+    async profile (req, res) {
+        try{
+            return res.status(200).json({
+                message: 'Profile fetched successfully',
+                data: req.user
+            });
+        }catch (e) {
+            return res.status(500).json({
+                message: 'Profile failed',
+                error: await e.message
+            });
+        }
+    }
 }
 
 
